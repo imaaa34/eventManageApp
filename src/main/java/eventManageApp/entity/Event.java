@@ -1,7 +1,5 @@
 package eventManageApp.entity;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,7 +20,7 @@ public class Event {
 	@Column(name = "event_name")
 	private String eventName;
 	@Column(name = "event_date")
-	private Date eventDate;
+	private String eventDate;
 	@Column(name = "event_place")
 	private String eventPlace;
 }

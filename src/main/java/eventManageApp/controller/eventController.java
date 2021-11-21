@@ -40,7 +40,7 @@ public class eventController {
 	@GetMapping("regist")
 	public String regist(Model model) {
 		// 次に表示する画面のパス（htmlファイルの名称）を返却
-		return "eventdetail";
+		return "regist";
 	}
 
 //	イベント詳細画面
@@ -51,7 +51,7 @@ public class eventController {
 		// イベントの情報は1件の前提で処理
 		List<Event> event = eventService.findByEventId(eventId);
 		// modelに結果をセット
-		model.addAttribute("event", event);
+		model.addAttribute("event", event.get(0));
 		// 引数で受け取ったイベントIDからイベントの参加者情報を取得
 		List<Participant> participantList = eventEntryService.findByEventId(eventId);
 		// modelに結果をセット
@@ -66,7 +66,7 @@ public class eventController {
 		// フォームから値を取得してデータベース登録処理へ
 		eventService.save(eventForm);
 		// 次に表示する画面のパス（リダイレクト先のページ）を返却
-		return "redirect:";
+		return "redirect:/";
 	}
 
 //	イベント参加処理
@@ -76,6 +76,6 @@ public class eventController {
 			// フォームから値を取得してデータベース登録処理へ
 			eventEntryService.save(eventEntryForm);
 			// 次に表示する画面のパス（リダイレクト先のページ）を返却
-			return "eventdetail";
+			return "redirect:/entry/" + eventEntryForm.getEventId();
 	}	
 }

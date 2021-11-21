@@ -10,7 +10,7 @@ import eventManageApp.form.EventForm;
 import eventManageApp.repository.EventRepository;
 
 @Service
-public class EventServiceImpl {
+public class EventServiceImpl implements EventService {
 	@Autowired
 	EventRepository eventRepository;
 	
